@@ -30,14 +30,14 @@ export default function App() {
         <div className="right-arrow" onClick={nextSlide}>
           ⮕
         </div>
-        {images.map(
-          (image, index) =>
-            current === index && (
-              <div key={image} className="slide">
-                <img src={image} alt="images" />
-              </div>
-            )
-        )}
+        {images.map((image, index) => {
+          if (current === index) {
+            return <div key={image} className="slide">
+              <img src={image} alt="images" />
+            </div>
+          }
+        })
+        }
       </div>
     </div>
   );
